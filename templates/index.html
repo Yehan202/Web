@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">      
+    <title>The Game of The Year</title>
+</head>
+<body style="background-image: url('../static/fotos/fondo2.jpg');">
+    <nav>
+        <ul>
+            <h1>Game Of The Year</h1>
+            <li><a href="http://127.0.0.1:8000">Inicio</a></li>
+            <li><a href="http://127.0.0.1:8000/antiguosaños">Antiguos años</a></li>
+            <li><a href="http://127.0.0.1:8000/predicciones">Predicciones</a></li>
+            <li><a href="http://127.0.0.1:8000/desarrollador">Desarrollador</a></li>
+            <li><a href="http://127.0.0.1:8000/empresas">Empresa</a></li>
+        </ul>
+    </nav>
+    <br><br><br><br><br>
+    <h1>The Game of The Year 2024</h1>    
+</html>
+<script>
+    function showContent(id) {
+        const sections = document.querySelectorAll('.container');
+        sections.forEach(section => section.style.display = 'none');
+        document.getElementById(id).style.display = 'flex';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        showContent('winner-container');
+    });
+</script>
+
+<div class="button-container" style="text-align: center; margin-top: 20px;" ></div>
+    <button onclick="showContent('winner-container')">Winner</button>
+    <button onclick="showContent('wukong-container')">Black Myth Wukong</button>
+    <button onclick="showContent('metaphor-container')">Metaphor ReFantazio</button>
+    <button onclick="showContent('elden-ring-container')">Elden Ring</button>
+    <button onclick="showContent('balatro-container')">Balatro</button>
+</div>
+<br><br><br><br><br>
+
+<div id="winner-container" class="container">
+    <img src="../static/fotos/astrobot2.avif" alt="astrobot" width="400px" height="250px">
+    <div>
+        <h2>Winner : Astro Bot</h2>
+        <p>Astro Bot​ es un videojuego de plataformas de 2024 desarrollado por Team Asobi y publicado por Sony Interactive Entertainment para PlayStation 5. Es una secuela de Astro's Playroom y el primer juego desarrollado por Team Asobi desde su separación de Japan Studio.</p>
+    </div>
+</div>
+
+<div id="wukong-container" class="container" style="display:none;">
+    <img src="../static/fotos/wukong.jpg" alt="wukong" width="400px" height="250px">
+    <div>
+        <h2>Participate : Black Myth Wukong</h2>
+        <p>Black Myth: Wukong es un videojuego de rol de acción, desarrollado y distribuido por Game Science. Está basado en la clásica novela china del siglo XVI Viaje al Oeste, siguiendo las aventuras del mono Sun Wukong.​</p>
+    </div>
+</div>
+
+<div id="metaphor-container" class="container" style="display:none;">
+    <img src="../static/fotos/metaphor-refantazio.jpg" alt="metaphor" width="400px" height="250px">
+    <div>
+        <h2>Participate : Metaphor ReFantazio</h2>
+        <p>Metaphor: ReFantazio es un videojuego de rol de 2024 desarrollado por Studio Zero y publicado por Atlus en Japón y Sega en todo el mundo. El juego tiene lugar en el Reino Unido de Euchronia, un reino de fantasía medieval que refleja el mundo real contemporáneo, tras el asesinato de su antiguo Rey.</p>
+    </div>
+</div>
+
+<div id="elden-ring-container" class="container" style="display:none;">
+    <img src="../static/fotos/eldenring.png" alt="elden-ring" width="400px" height="250px">
+    <div>
+        <h2>Participate : Elden Ring: Shadow of The Erdtree</h2>
+        <p>Elden Ring: Shadow of the Erdtree es un contenido descargable del videojuego de rol de acción de 2022, Elden Ring. A un año luego del lanzamiento del videojuego se anunció que una expansión se encontraba en desarrollo. El mensaje decía: «Levántate, SinLuz, y caminemos juntos por un nuevo camino.</p>
+    </div>
+</div>
+
+<div id="balatro-container" class="container" style="display:none;">
+    <img src="../static/fotos/balatro.jpg" alt="balatro" width="400px" height="250px">
+    <div>
+        <h2>Participate : Balatro</h2>
+        <p>Balatro​ es un videojuego roguelike de construcción de mazos de baraja inglesa desarrollado por LocalThunk y publicado por Playstack. El juego consiste en la superación de unas rondas llamadas ciegas, obteniendo un determinado número de puntos, que se consiguen jugando manos de póquer.</p>
+    </div>
+</div>

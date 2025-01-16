@@ -13,19 +13,36 @@ app = FastAPI()
 app.mount("/static",StaticFiles(directory="static"), name = "static" ) 
 templates = Jinja2Templates(directory="templates")
 
+# @app.get("/")
+# def read_root():
+#     return {"Hello": "World"}
+
 @app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-@app.get("/test", response_class=HTMLResponse)
-async def test(request:Request):
-    
+async def inicio(request:Request):
     return templates.TemplateResponse(
-        request=request, name="index.html", context={"nombre":"yehan"}
-
+         request=request, name="index.html"
     )
 
+@app.get("/antiguosaños")
+async def antiguo(request:Request):
+    return templates.TemplateResponse(
+         request=request, name="antiguos_años.html"
+)
 
+@app.get("/predicciones")
+async def predicciones(request:Request):
+    return templates.TemplateResponse(
+         request=request, name="predicciones.html"
+)
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+@app.get("/desarrollador")
+async def desarrollador(request:Request):
+    return templates.TemplateResponse(
+         request=request, name="desarrollador.html"
+)
+
+@app.get("/empresas")
+async def empresa(request:Request):
+    return templates.TemplateResponse(
+         request=request, name="empresa.html"
+)

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Antiguos Años</title>
+</head>
+<body style="background-image: url('../static/fotos/fondo3.jpg');">
+    <nav>
+        <ul>
+            <h1>Game Of The Year</h1>
+            <li><a href="http://127.0.0.1:8000">Inicio</a></li>
+            <li><a href="http://127.0.0.1:8000/antiguosaños">Antiguos años</a></li>
+            <li><a href="http://127.0.0.1:8000/predicciones">Predicciones</a></li>
+            <li><a href="http://127.0.0.1:8000/desarrollador">Desarrollador</a></li>
+            <li><a href="http://127.0.0.1:8000/empresas">Empresa</a></li>
+        </ul>
+    </nav>
+    <br><br><br><br><br>
+
+    <h1>Antiguos Años</h1>
+
+    
+    <script>
+        function showContent(id) {
+            const sections = document.querySelectorAll('.container');
+            sections.forEach(section => section.style.display = 'none');
+            document.getElementById(id).style.display = 'flex';
+        }
+    </script>
+    
+    <div class="button-container" style="text-align: center; margin-top: 20px;">
+        <button onclick="showContent('2023-container')">2023</button>
+        <button onclick="showContent('2022-container')">2022</button>
+        <button onclick="showContent('2021-container')">2021</button>
+        <button onclick="showContent('2020-container')">2020</button>
+        <button onclick="showContent('2019-container')">2019</button>
+        <button onclick="showContent('2018-container')">2018</button>
+        <button onclick="showContent('2017-container')">2017</button>
+        <button onclick="showContent('2016-container')">2016</button>
+        
+
+    </div>
+
+    <br><br><br><br><br>
+    
+    <div id="2023-container" class="container">
+        <img src="../static/fotos/2023.avif" alt="astrobot" width="400px" height="250px">
+        <div>
+            <h2>2023 : Baldur's Gate 3</h2>
+        </div>
+    </div>
+    
+    <div id="2022-container" class="container" style="display:none;">
+        <img src="../static/fotos/2022.avif" alt="2022" width="400px" height="250px">
+        <div>
+            <h2>2022 : Elden Ring </h2>
+        </div>
+    </div>
+    
+    <div id="2021-container" class="container" style="display:none;">
+        <img src="../static/fotos/2021.jpg" alt="2021" width="400px" height="250px">
+        <div>
+            <h2>2021 : It Takes Two</h2>
+        </div>
+    </div>
+    
+    <div id="2020-container" class="container" style="display:none;">
+        <img src="../static/fotos/2020.jpg" alt="2020" width="400px" height="250px">
+        <div>
+            <h2>2020 : The Last of Us Part II</h2>
+        </div>
+    </div>
+    
+    <div id="2019-container" class="container" style="display:none;">
+        <img src="../static/fotos/2019.jpeg" alt="2019" width="400px" height="250px">
+        <div>
+            <h2>2019 : sekiro: Shadows Die Twice</h2>
+        </div>
+    </div>
+
+    <div id="2018-container" class="container" style="display:none;">
+        <img src="../static/fotos/2018.avif" alt="2018" width="400px" height="250px">
+        <div>
+            <h2>2018 : God of War</h2>
+        </div>
+    </div>
+
+    <div id="2017-container" class="container" style="display:none;">
+        <img src="../static/fotos/2017.jpg" alt="2017" width="400px" height="250px">
+        <div>
+            <h2>2017 : The Legend of Zelda: Breath of the Wild</h2>
+        </div>
+    </div>
+
+    <div id="2016-container" class="container" style="display:none;">
+        <img src="../static/fotos/2016.avif" alt="2016" width="400px" height="250px">
+        <div>
+            <h2>2016 : Uncharted 4: A Thief's End</h2>
+        </div>
+</body>
+</html>
+
