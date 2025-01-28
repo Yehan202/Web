@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <title>Games</title>
+
+</head>
+<body style="background-color: rgb(32, 148, 92)">
+    <h1 style="text-align: center;">Games</h1>
+    {% if juegos %}
+        <ul>
+        {% for juego in juegos %}
+            <li>{{ juego.nombre }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay juegos disponibles.</p>
+    {% endif %}
+
+    <h1>Añadir Alumno</h1>
+
+
+    <!-- <form action="{{ url_for('add_game') }}" method="post">
+         <input type="text" name="nombre" placeholder="Nombre">
+         <input type="submit" value="Enviar">
+    </form> -->
+
+    <!-- <form action="{{ url_for('del_game') }}" method="post">
+        <select  name="Juego_id">
+             {% for juego in juegos %}  
+        <option value="{{Juego_id.id}}">{{Juego.nombre}}</option>
+             {% endfor%}
+
+        </select>
+        
+        <input type="submit" value="Borrar"> 
+   </form> -->
+</body>
+</html>
