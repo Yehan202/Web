@@ -20,20 +20,23 @@
     <h1>Añadir Alumno</h1>
 
 
-    <!-- <form action="{{ url_for('add_game') }}" method="post">
+    <form action="{{ url_for('add_juego') }}" method="post">
          <input type="text" name="nombre" placeholder="Nombre">
          <input type="submit" value="Enviar">
-    </form> -->
+    </form>
 
-    <!-- <form action="{{ url_for('del_game') }}" method="post">
-        <select  name="Juego_id">
-             {% for juego in juegos %}  
-        <option value="{{Juego_id.id}}">{{Juego.nombre}}</option>
-             {% endfor%}
+
+        <form action="{{ url_for('del_juego') }}" method="post">
+            <select  name="juego_id">
+                {% for juego in juegos %}  
+
+<option value="{{juego.id}}">{{juego.nombre}}</option>
+
+                {% endfor%}
 
         </select>
         
         <input type="submit" value="Borrar"> 
-   </form> -->
+   </form>
 </body>
 </html>

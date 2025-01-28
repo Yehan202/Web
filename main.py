@@ -1,9 +1,9 @@
 from fastapi import FastAPI,Request,Form
 from data.database import database
-import uvicorn
+
 from typing import Annotated
 from data.dao.dao_games import DaoJuegos
-from data.modelo.juego import Juego
+
 from data.database import database
 
 from fastapi.responses import HTMLResponse
@@ -50,34 +50,57 @@ async def empresa(request:Request):
 )
 
 
+
+
+
+
 @app.get("/juegos")
-def get_juegos(request: Request,nombre : str = "pepe",otro: int  = 1):
+def get_juegos(request: Request,nombre : str = "pepe", otro: int  = 1):
     juegos =  DaoJuegos().get_all(database)
     return templates.TemplateResponse(
     request=request, name="game.html", context={"juegos": juegos,"nombre": nombre} )
    
 
-@app.post("/addgame")
-def add_game(request: Request, nombre: Annotated[str, Form()] = None):
-    if nombre is None:
+@app.get("/formaddgames")
+def form_add_juegos(request: Request):
+    return templates.TemplateResponse(
+    request=request, name="formaddGames.html"
+    )
+
+
+@app.post("/addjuegos")
+def add_game(request: Request, Juego_nombre: Annotated[str, Form()] = None):
+    if Juego_nombre is None:
         return templates.TemplateResponse(
             request=request, name="game.html", context={"nombre": "pepe"}
         )
     
     dao = DaoJuegos()
-    dao.insert(database, nombre)
+    dao.insert(database, Juego_nombre)
     
     juegos = dao.get_all(database)
     return templates.TemplateResponse(
-        request=request, name="formaddGames.html", context={"juegos": juegos}
-    )
+    request=request, name="formaddGames.html", context={"juegos": juegos}
+)
 
-@app.post("/delgame")
-def del_alumnos(request: Request,game_id:Annotated[str, Form()] ):
+
+@app.post("/delgames")
+def del_games(request: Request,juego_id:Annotated[str, Form()] ):
     print("hlhl")
     dao = DaoJuegos()
-    dao.delete(database, game_id)
+    dao.delete(database, juego_id)
     
     juegos =  dao.get_all(database)
     return templates.TemplateResponse(
     request=request, name="game.html", context={"juegos": juegos} )
+
+@app.post("/delgame/{juego_id}")
+def del_game(request: Request, juego_id: Annotated[str, Form()]):
+    dao = DaoJuegos()
+    dao.delete(database, juego_id)
+    
+    juegos = dao.get_all(database)
+    return templates.TemplateResponse(
+        request=request, name="game.html", context={"juegos": juegos}
+    )
+
