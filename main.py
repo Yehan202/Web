@@ -63,17 +63,17 @@ def get_juegos(request: Request,nombre : str = "pepe"):
     request=request, name="game.html", context={"juegos": juegos,"nombre": nombre} )
    
 
-@app.post("/deletejuegos/{juego_id}")
-def delete_juegos(request: Request, juego_id: str):
-    dao = DaoJuegos()
-    dao.delete(database, juego_id)
+# @app.post("/deletejuegos/{juego_id}")
+# def delete_juegos(request: Request, juego_id: str):
+#     dao = DaoJuegos()
+#     dao.delete(database, juego_id)
     
-    juegos = dao.get_all(database)
-    return templates.TemplateResponse(
-    request=request, name="game.html", context={"juegos": juegos}
-    )
+#     juegos = dao.get_all(database)
+#     return templates.TemplateResponse(
+#     request=request, name="game.html", context={"juegos": juegos}
+#     )
 
-@app.post("/delgames")
+@app.post("/deljuegos")
 def del_juego(request: Request,juego_id:Annotated[str, Form()] ):
     print("hlhl")
     dao = DaoJuegos()
@@ -87,26 +87,21 @@ def del_juego(request: Request,juego_id:Annotated[str, Form()] ):
 
 
 
-@app.get("/formaddgames")
-def form_add_juegos(request: Request):
-    return templates.TemplateResponse(
-    request=request, name="formaddGames.html"
-    )
+# @app.get("/formaddgames")
+# def form_add_juegos(request: Request):
+#     return templates.TemplateResponse(
+#     request=request, name="formaddGames.html"
+#     )
 
 
 @app.post("/addjuegos")
 def add_juego(request: Request, nombre: Annotated[str, Form()] = None):
-    if nombre is None:
-        return templates.TemplateResponse(
-            request=request, name="game.html", context={"nombre": "pepe"}
-        )
-    
+
     dao = DaoJuegos()
     dao.insert(database, nombre)
     
     juegos = dao.get_all(database)
     return templates.TemplateResponse(
-    request=request, name="formaddGames.html", context={"juegos": juegos}
-)
+    request=request, name="game.html", context={"juegos": juegos} )
 
 

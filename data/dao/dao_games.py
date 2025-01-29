@@ -17,11 +17,17 @@ class DaoJuegos:
     
     def insert(self, db, nombre: str):
         cursor = db.cursor()
-        sql = ("INSERT INTO Juegos (nombre) values (%s) ")
-        data = (nombre,)
-        cursor.execute(sql,data)
-        # cursor.execute(f"INSERT INTO alumnos (nombre) VALUES ('{nombre}')")
-        db.commit()
+        
+        # Get the last id
+        cursor.execute("SELECT MAX(id) FROM Juegos")
+        last_id = cursor.fetchone()[0]
+        new_id = last_id + 1 if last_id is not None else 1
+        
+        # Insert the new record with the new id
+        sql = ("INSERT INTO Juegos (id, nombre) values (%s, %s)")
+        data = (new_id, nombre)
+        cursor.execute(sql, data)
+        db.commit() 
         cursor.close()
 
     def delete(self, db, id: str):
