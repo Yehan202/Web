@@ -3,40 +3,58 @@
 <head>  
     <meta charset="UTF-8">
     <title>Games</title>
-
+    <link rel="stylesheet" href="/static/css/estilo.css">      
 </head>
-<body style="background-color: rgb(32, 148, 92)">
-    <h1 style="text-align: center;">Games</h1>
-    {% if juegos %}
-        <ul>
-        {% for juego in juegos %}
-            <li>{{ juego.nombre }}</li>
-        {% endfor %}
+<body >
+    <nav class="nav">
+        <ul class="nav">
+            <li><a href="http://127.0.0.1:8000">Inicio</a></li>
+            <li><a href="http://127.0.0.1:8000/antiguosaños">Antiguos años</a></li>
+            <li><a href="http://127.0.0.1:8000/predicciones">Predicciones</a></li>
+            <li><a href="http://127.0.0.1:8000/desarrollador">Desarrollador</a></li>
+            <li><a href="http://127.0.0.1:8000/empresas">Empresa</a></li>
+            <li><a href="http://127.0.0.1:8000/juegos">Juegos</a></li>
+            
         </ul>
-    {% else %}
-        <p>No hay juegos disponibles.</p>
-    {% endif %}
-
-    <h1>Añadir juego</h1>
+    </nav>
+    <br><br>
 
 
-    <form action="{{ url_for('add_juego') }}" method="post">
-         <input type="text" name="nombre" placeholder="Nombre" required>
-         <button type="submit">Añadir Juego</button>
-    </form>
+    <h1 style="text-align: center;">Games</h1>
+<h1>Lista de Juegos</h1>
+<div style="display: flex; justify-content: space-between;">
+    <div>
+        {% if juegos %}
+            <ul>
+            {% for juego in juegos %}
+                <li>{{ juego.nombre }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay juegos disponibles.</p>
+        {% endif %}
+    </div>
 
-    <h1>Elimina juego</h1>
+    <div>
+        <h1>Añadir juego</h1> 
+        <form action="{{ url_for('add_juego') }}" method="post">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <button type="submit">Añadir Juego</button>
+        </form>
+    </div>
+
+    <div>
+        <h1>Elimina juego</h1>
         <form action="{{ url_for('del_juego') }}" method="post">
-            <select  name="juego_id">
+            <select name="juego_id">
                 {% for juego in juegos %}  
-
                     <option value="{{juego.id}}">{{juego.nombre}}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Eliminar</button>
+        </form>
+    </div>
+</div>
 
-                {% endfor%}
-
-        </select>
-        
-        <input type="submit" value="Borrar"> 
-   </form>
 </body>
 </html>

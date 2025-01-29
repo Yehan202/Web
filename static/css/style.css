@@ -62,7 +62,7 @@
     flex; justify-content: space-around; 
   }
 
-  .container {
+.container {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
